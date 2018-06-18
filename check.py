@@ -1,9 +1,8 @@
 import os
 import re
-from sets import Set
 def check_files(path):
     file_name = []
-    file_name_set = Set()
+    file_name_set = set()
     for root, dirs, files in os.walk(path):
         for name in files:
             if os.path.splitext(name)[1] == '.jl':
@@ -12,7 +11,7 @@ def check_files(path):
                     num = int(''.join(re.findall(r"\d", str(name))))
                     file_name.append(num)
 
-    file_name_set = Set(file_name)
+    file_name_set = set(file_name)
 
     start = int(24863216/15)
     count = start
